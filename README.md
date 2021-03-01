@@ -17,7 +17,7 @@ Programming Experience: Did some of this last year and some twards the beggining
 9th Grade Year: In the space below, write 2-5 sentences describing your programming experience in the previous year, even if you went to another school.
 
 
-imagine
+I learned about python and grammer in python. I also learned about different things like numbers and stuff in python. We also learned about html and that stuff.
 
 
 
