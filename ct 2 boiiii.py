@@ -4,18 +4,23 @@ myList=[]
 
 def mainProgram():
     while True:
-        print("Hey there! Lets work with lists!")
-        print("Choose one of the following options. Type a NUMBER ONLY!")
-        choice = input("""1. Add to list,
-    2. Return the value at an index position,
-    3. End Program   """)
-        if choice == "1":
-            addToList()
-        elif choice == "2":
-            indexValues()
-        elif choice == "3":
-            break
-
+        try:
+            print("Hey there! Lets work with lists!")
+            print("Choose one of the following options. Type a NUMBER ONLY!")
+            choice = input("""1. Add to list,
+        2. Return the value at an index position,
+        3. Random Choice
+        4. End Program""")
+            if choice == "1":
+                addToList()
+            elif choice == "2":
+                indexValues()
+            elif choice == "3":
+                randomSearch()
+            else:
+                break
+        except:
+            print("An error occurred")
 
     def addToList():
         newItem = input("Please type an intager!   ")
