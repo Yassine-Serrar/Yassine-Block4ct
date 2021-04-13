@@ -1,6 +1,6 @@
 import random
-myList=[]
-unique_list= []
+myList = []
+unique_list = []
 
 
 def mainProgram():
@@ -13,10 +13,12 @@ def mainProgram():
 2. Add a bunch of numbers,
 3. Return the value at an index position,
 4. Sort list,
-6. Linear Search,
 5. Random Choice,
-7. Print Lists
-8. End Program   """)
+6. Linear Search,
+7. Recursive Search
+8. Print Lists,
+9. Find Sum of Numbers,
+10. End Program   """)
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -30,7 +32,14 @@ def mainProgram():
             elif choice == "6":
                 linearSearch()
             elif choice == "7":
+                binSearch = input("what number are you looking for?   ")
+                recursiveBinarySearch(unique_list, 0, len(unique_list)-1, int(binSearch))
+            elif choice == "8":
                 printLists()
+            elif choice == "9":
+                numberSum()
+                
+
             else:
                 break
         except:
@@ -60,6 +69,16 @@ def sortList(myList):
         print(unique_list)
 
 
+def numberSum():
+    lst = []
+    num = int(input('would you like to add up?   '))
+    for x in range(num):
+        numbers = int(input('Number   '))
+        lst.append(numbers)
+        print("The sum of your numbers are   ",sum(lst))
+    
+    
+
 def indexValues():
     indexPos = input("At what index position would you like to look?   ")
     print(myList[int(indexPos)])
@@ -78,32 +97,18 @@ because i want you to suffer """)
     print(indexCount)
     
 def recursiveBinarySearch(unique_list, low, high, x):
-    low = 0
-    high = len(unique_list)-1
-    mid = 0
-
-    while low <= high:
-        mid=(high + low) // 2
-
-        if unique_list[mid] > x:
-            high = mid +1
-        elif unique_list[mid] > x:
-            high = mid -1
-        else:
-            return mid
-        return -1
-
     if high >= low:
         mid = (high + low) // 2
 
         if unique_list[mid] == x:
-            print("""Oh, your just a lucky dude aren't you?
-Your number is at position {}""".format(mid))
-        elif unique_list[mid] > x:
-            return recursiveBinarySearch(unique_list, low, mid, -1, x)
-    else:
-        return recursiveBinarySearch(unique_list, low, mid + 1, high, x)
+            print("Oh, your just a lucky dude aren't you? Your number is at position {}".format(mid))
+            return mid
 
+        elif unique_list[mid] > x:
+            return recursiveBinarySearch(unique_list, low, mid -1, x)
+
+        else:
+            return recursiveBinarySearch(unique_list, low, mid + 1, high, x)
     else:
         print("Your number isn't here!")
 
